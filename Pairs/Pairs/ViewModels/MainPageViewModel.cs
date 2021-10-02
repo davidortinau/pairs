@@ -111,7 +111,7 @@ namespace Pairs.ViewModels
 
             var random = new Random();
 
-            const int gridSize = 4;
+            const int gridSize = 16;
             var requiredSpeakerCount = gridSize / 2;
 
             var actualSpeakers = new List<SpeakerViewModel>(gridSize);
