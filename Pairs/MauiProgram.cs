@@ -19,10 +19,13 @@ namespace Pairs
 				})
 				.ConfigureEffects(effects =>
             {
-				#if ANDROID
-				effects.Add(typeof(ParticleEffect), typeof(Pairs.Droid.Effects.ParticleEffect));
-				#endif
-            });
+#if ANDROID
+				effects.Add<ParticleEffect, Pairs.Droid.Effects.ParticleEffect>();
+#endif
+#if IOS
+				effects.Add<ParticleEffect, Pairs.iOS.Effects.ParticleEffect>();
+#endif
+			});
 
 			return builder.Build();
 		}

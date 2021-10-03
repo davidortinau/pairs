@@ -17,7 +17,7 @@ namespace Pairs
 			if (e.PropertyName == nameof(MainPageViewModel.State) &&
 			    ((MainPageViewModel)BindingContext).State == Models.LevelState.Complete)
 			{
-				//TrophyAnimation.PlayAnimation();
+				//TrophyAnimation.PlayAnimation(); // TODO we need a Lottie for MAUI or alternative
 			}
 		}
 	}

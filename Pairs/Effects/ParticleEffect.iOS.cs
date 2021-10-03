@@ -3,12 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoreAnimation;
 using Foundation;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Platform;
 using UIKit;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
 
-[assembly: ResolutionGroupName(nameof(Pairs) + "." + nameof(Pairs.Effects))]
-[assembly: ExportEffect(typeof(Pairs.iOS.Effects.ParticleEffect), nameof(Pairs.iOS.Effects.ParticleEffect))]
 namespace Pairs.iOS.Effects
 {
     public class ParticleEffect : PlatformEffect

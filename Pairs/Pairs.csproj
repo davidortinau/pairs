@@ -32,7 +32,7 @@
 		<MauiImage Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" IsAppIcon="true" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" />
+		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#264653" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -48,15 +48,6 @@
 		<PackageReference Include="Microsoft.WindowsAppSDK.WinUI" Version="1.0.0-experimental1" />
 		<PackageReference Include="Microsoft.WindowsAppSDK.InteractiveExperiences" Version="1.0.0-experimental1" NoWarn="NU1701" />
 		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.26-experimental1" />
-	</ItemGroup>
-
-	
-	<ItemGroup>
-	  <Compile Remove="Platforms\iOS\Effects\ParticleEffect.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="Platforms\iOS\Effects\ParticleEffect.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -86,5 +77,30 @@
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
+
+	<ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.iOS')) != true AND $(TargetFramework.StartsWith('net6.0-ios')) != true AND $(TargetFramework.StartsWith('net6.0-maccatalyst')) != true ">
+		<Compile Remove="**\**\*.iOS.cs" />
+		<None Include="**\**\*.iOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+		<Compile Remove="**\iOS\**\*.cs" />
+		<None Include="**\iOS\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+	<ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.Mac')) != true ">
+		<Compile Remove="**\*.Mac.cs" />
+		<None Include="**\*.Mac.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+		<Compile Remove="**\Mac\**\*.cs" />
+		<None Include="**\Mac\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+	<ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.Mac')) != true AND $(TargetFramework.StartsWith('Xamarin.iOS')) != true AND $(TargetFramework.StartsWith('net6.0-ios')) != true AND $(TargetFramework.StartsWith('net6.0-maccatalyst')) != true">
+		<Compile Remove="**\*.MaciOS.cs" />
+		<None Include="**\*.MaciOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+		<Compile Remove="**\MaciOS\**\*.cs" />
+		<None Include="**\MaciOS\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+	<ItemGroup Condition="$(TargetFramework.StartsWith('MonoAndroid')) != true AND $(TargetFramework.StartsWith('net6.0-android')) != true ">
+		<Compile Remove="**\**\*.Android.cs" />
+		<None Include="**\**\*.Android.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+		<Compile Remove="**\Android\**\*.cs" />
+		<None Include="**\Android\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
 
 </Project>

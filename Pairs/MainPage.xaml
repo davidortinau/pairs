@@ -144,6 +144,7 @@
                                    VerticalOptions="Fill"
                                    IsVisible="False"
                                    Source="{Binding ProfileImageUrl}" />
+                            
                         </Frame>
                     </Grid>
                 </DataTemplate>
