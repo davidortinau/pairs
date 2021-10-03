@@ -50,33 +50,41 @@
 		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.26-experimental1" />
 	</ItemGroup>
 
+	
 	<ItemGroup>
-	  <Compile Remove="arch\**" />
+	  <Compile Remove="Platforms\iOS\Effects\ParticleEffect.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Remove="arch\**" />
+	  <None Include="Platforms\iOS\Effects\ParticleEffect.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="arch\**" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.0.0-pre2" />
+	  <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Remove="arch\**" />
+	  <Reference Include="leonids.xambind.android">
+	    <HintPath>leonids.xambind.android.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiCss Remove="arch\**" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
+	  <PackageReference Include="Xamarin.CommunityToolkit.MauiCompat">
+	    <Version>1.3.0-alpha2</Version>
+	  </PackageReference>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Platforms\Android\Effects" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+	  <PackageReference Include="Xamarin.CommunityToolkit.MauiCompat">
+	    <Version>1.3.0-alpha2</Version>
+	  </PackageReference>
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
-	
+
 </Project>

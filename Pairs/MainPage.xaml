@@ -1,9 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
              xmlns:models="clr-namespace:Pairs.Models"
              xmlns:viewModels="clr-namespace:Pairs.ViewModels"
-             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
              xmlns:behaviors="clr-namespace:Pairs.Behaviors" 
              xmlns:effects="clr-namespace:Pairs.Effects"
              x:Class="Pairs.MainPage"
@@ -59,12 +58,12 @@
     </ContentPage.Resources>
 
     <Grid RowDefinitions="80,*">
-        <lottie:AnimationView Animation="background.json"
+        <!--<lottie:AnimationView Animation="background.json"
                               AnimationSource="AssetOrBundle"
                               RepeatMode="Infinite"
                               Grid.RowSpan="2"
                               VerticalOptions="FillAndExpand"
-                              HorizontalOptions="FillAndExpand" />
+                              HorizontalOptions="FillAndExpand" />-->
 
         <Grid ColumnDefinitions="*,Auto">
             <StackLayout BindableLayout.ItemsSource="{Binding GuessedSpeakers}"
@@ -167,12 +166,12 @@
                        VerticalOptions="Start"
                        FontSize="Title" />
 
-                <lottie:AnimationView Animation="trophy.json"
+                <!--<lottie:AnimationView Animation="trophy.json"
                                       x:Name="TrophyAnimation"
                                       AnimationSource="AssetOrBundle"
                                       AutoPlay="False"
                                       VerticalOptions="FillAndExpand"
-                                      HorizontalOptions="FillAndExpand" />
+                                      HorizontalOptions="FillAndExpand" />-->
 
                 <Polygon Points="0,0 40,20 0,40"
                          Fill="#2A9D8F"

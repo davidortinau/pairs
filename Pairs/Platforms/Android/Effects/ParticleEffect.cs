@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using DroidView = Microsoft.Maui.Controls.PlatformConfiguration.Android.Views;
 using AndroidX.Core.Content;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls.Platform;
+using Com.Plattysoft.Leonids;
 
 namespace Pairs.Droid.Effects
 {
@@ -45,8 +45,8 @@ namespace Pairs.Droid.Effects
             var location = new int[2];
             control.GetLocationOnScreen(location);
 
-            var drawableImage = ContextCompat.GetDrawable(Xamarin.Essentials.Platform.CurrentActivity, Xamarin.Essentials.Platform.CurrentActivity.Resources.GetIdentifier(image, "drawable", Xamarin.Essentials.Platform.CurrentActivity.PackageName));
-            var particleSystem = new ParticleSystem(Xamarin.Essentials.Platform.CurrentActivity, numberOfItems, drawableImage, lifeTime);
+            var drawableImage = ContextCompat.GetDrawable(Microsoft.Maui.Essentials.Platform.CurrentActivity, Microsoft.Maui.Essentials.Platform.CurrentActivity.Resources.GetIdentifier(image, "drawable", Microsoft.Maui.Essentials.Platform.CurrentActivity.PackageName));
+            var particleSystem = new ParticleSystem(Microsoft.Maui.Essentials.Platform.CurrentActivity, numberOfItems, drawableImage, lifeTime);
             particleSystem
               .SetSpeedRange(0f, speed)
               .SetScaleRange(0, scale)
