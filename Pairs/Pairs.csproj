@@ -51,6 +51,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\star.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.0.0-pre2" />
 	  <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
 	</ItemGroup>
@@ -73,34 +77,13 @@
 	  </PackageReference>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Platforms\Android\Resources\drawable\" />
+	</ItemGroup>
+
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
-
-	<ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.iOS')) != true AND $(TargetFramework.StartsWith('net6.0-ios')) != true AND $(TargetFramework.StartsWith('net6.0-maccatalyst')) != true ">
-		<Compile Remove="**\**\*.iOS.cs" />
-		<None Include="**\**\*.iOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-		<Compile Remove="**\iOS\**\*.cs" />
-		<None Include="**\iOS\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-	</ItemGroup>
-	<ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.Mac')) != true ">
-		<Compile Remove="**\*.Mac.cs" />
-		<None Include="**\*.Mac.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-		<Compile Remove="**\Mac\**\*.cs" />
-		<None Include="**\Mac\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-	</ItemGroup>
-	<ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.Mac')) != true AND $(TargetFramework.StartsWith('Xamarin.iOS')) != true AND $(TargetFramework.StartsWith('net6.0-ios')) != true AND $(TargetFramework.StartsWith('net6.0-maccatalyst')) != true">
-		<Compile Remove="**\*.MaciOS.cs" />
-		<None Include="**\*.MaciOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-		<Compile Remove="**\MaciOS\**\*.cs" />
-		<None Include="**\MaciOS\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-	</ItemGroup>
-	<ItemGroup Condition="$(TargetFramework.StartsWith('MonoAndroid')) != true AND $(TargetFramework.StartsWith('net6.0-android')) != true ">
-		<Compile Remove="**\**\*.Android.cs" />
-		<None Include="**\**\*.Android.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-		<Compile Remove="**\Android\**\*.cs" />
-		<None Include="**\Android\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-	</ItemGroup>
 
 </Project>

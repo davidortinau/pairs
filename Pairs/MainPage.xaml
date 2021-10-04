@@ -130,7 +130,6 @@
                         <Frame IsClippedToBounds="True"
                                Padding="0"
                                HasShadow="False"
-                               CornerRadius="40"
                                BackgroundColor="{StaticResource Color02}">
                             <Frame.Behaviors>
                                 <behaviors:SpeakerStateBehavior />
@@ -144,7 +143,10 @@
                                    VerticalOptions="Fill"
                                    IsVisible="False"
                                    Source="{Binding ProfileImageUrl}" />
-                            
+                            <Frame.Clip>
+                                <EllipseGeometry RadiusX="80" RadiusY="80"
+                                                 Center="80,80"/>
+                            </Frame.Clip>
                         </Frame>
                     </Grid>
                 </DataTemplate>
